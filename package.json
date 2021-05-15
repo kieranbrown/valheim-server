@@ -1,0 +1,16 @@
+{
+  "name": "valheim-server",
+  "dependencies": {
+    "@aws-cdk/core": "^1.94.1",
+    "@raykrueger/cdk-valheim-server": "^0.0.14"
+  },
+  "devDependencies": {
+    "aws-cdk": "^1.104.0",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  }
+}
