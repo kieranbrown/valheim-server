@@ -1,10 +1,11 @@
 {
   "name": "valheim-server",
   "dependencies": {
-    "@aws-cdk/core": "^1.94.1",
-    "@raykrueger/cdk-valheim-server": "^0.0.14"
+    "@aws-cdk/core": "^1.104.0",
+    "cdk-valheim": "^0.0.20"
   },
   "devDependencies": {
+    "@types/node": "^15.3.0",
     "aws-cdk": "^1.104.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
