@@ -29,4 +29,4 @@ jobs:
       - name: Deploy
         run: npx cdk deploy
         env:
-          SERVER_PASS: ${{ secrets.SERVER_PASS }}
+          GAMERS_SERVER_PASS: ${{ secrets.GAMERS_SERVER_PASS }}

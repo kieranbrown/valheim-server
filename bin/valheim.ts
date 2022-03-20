@@ -1,13 +1,19 @@
-import { App } from '@aws-cdk/core';
+import { App, Environment } from 'aws-cdk-lib';
 import { ValheimStack } from '../lib/valheim-stack';
 
 const app = new App();
 
-new ValheimStack(app, 'Valheim', {
-  env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION
-  }
-});
+const env: Environment = {
+  account: process.env.CDK_DEFAULT_ACCOUNT,
+  region: process.env.CDK_DEFAULT_REGION,
+};
 
-app.synth();
+new ValheimStack(app, 'GamersValheimStack', {
+  env,
+  environment: {
+    ADMINLIST_IDS: '76561198041195400',
+    SERVER_NAME: 'Gamers - Friend Finder',
+    SERVER_PASS: process.env.GAMERS_SERVER_PASS!,
+    WORLD_NAME: 'Gamers',
+  },
+});
