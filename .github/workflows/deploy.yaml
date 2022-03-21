@@ -29,4 +29,5 @@ jobs:
       - name: Deploy
         run: npx cdk deploy
         env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           GAMERS_SERVER_PASS: ${{ secrets.GAMERS_SERVER_PASS }}

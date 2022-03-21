@@ -12,6 +12,7 @@ new ValheimStack(app, 'GamersValheimStack', {
   env,
   environment: {
     ADMINLIST_IDS: '76561198041195400',
+    DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK!,
     SERVER_NAME: 'Gamers - Friend Finder',
     SERVER_PASS: process.env.GAMERS_SERVER_PASS!,
     WORLD_NAME: 'Gamers',
