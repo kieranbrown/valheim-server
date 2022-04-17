@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Deploy
-        run: npx cdk deploy --all --ci
+        run: npx cdk deploy --all --ci --require-approval=never
         env:
           DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
           DISCORD_PUBLIC_KEY: ${{ secrets.DISCORD_PUBLIC_KEY }}
