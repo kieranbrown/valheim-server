@@ -21,9 +21,10 @@ export class DiscordBotStack extends Stack {
       logRetention: 7,
     });
 
-    new Trigger(this, 'RegisterCommandsTrigger', {
-      handler: registerCommandsHandler,
-    });
+    // todo: disabled due to discord library requiring nodejs16
+    // new Trigger(this, 'RegisterCommandsTrigger', {
+    //   handler: registerCommandsHandler,
+    // });
 
     const interactionHandler = new aws_lambda_nodejs.NodejsFunction(this, 'InteractionHandler', {
       entry: 'discord/functions/interactions.ts',
