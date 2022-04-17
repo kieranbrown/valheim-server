@@ -1,11 +1,22 @@
 {
   "name": "valheim-server",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.3.0",
+    "aws-sdk": "^2.1099.0",
+    "tweetnacl": "^1.0.3"
+  },
   "devDependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.17.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.17.0-alpha.0",
+    "@types/aws-lambda": "^8.10.93",
     "@types/node": "^15.14.9",
     "aws-cdk": "^2.17.0",
     "aws-cdk-lib": "^2.17.0",
     "cdk-valheim": "^0.0.22",
-    "ts-node": "^9.1.1",
+    "discord-api-types": "^0.29.0",
+    "esbuild": "^0.14.27",
+    "esbuild-runner": "^2.2.1",
     "typescript": "^4.6.2"
   },
   "scripts": {
