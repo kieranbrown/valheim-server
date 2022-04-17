@@ -27,8 +27,8 @@ export class ValheimStack extends Stack {
     });
 
     new ValheimWorld(this, 'ValheimWorld', {
-      // cpu: 2048,
-      // memoryLimitMiB: 4096,
+      cpu: 1024,
+      memoryLimitMiB: 3072,
       // schedules: [{
       //   start: { hour: '18', weekDay: '5' },
       //   stop: { hour: '1', weekDay: '1' },
