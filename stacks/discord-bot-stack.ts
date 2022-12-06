@@ -3,6 +3,7 @@ import * as aws_apigatewayv2 from '@aws-cdk/aws-apigatewayv2-alpha';
 import { Trigger } from 'aws-cdk-lib/triggers';
 import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
 import { ValheimStack } from './valheim-stack';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
 
 export interface DiscordBotStackProps extends StackProps {
   valheimStacks: ValheimStack[];
@@ -19,12 +20,12 @@ export class DiscordBotStack extends Stack {
         DISCORD_TOKEN: process.env.DISCORD_TOKEN!,
       },
       logRetention: 7,
+      runtime: Runtime.NODEJS_16_X,
     });
 
-    // todo: disabled due to discord library requiring nodejs16
-    // new Trigger(this, 'RegisterCommandsTrigger', {
-    //   handler: registerCommandsHandler,
-    // });
+    new Trigger(this, 'RegisterCommandsTrigger', {
+      handler: registerCommandsHandler,
+    });
 
     const interactionHandler = new aws_lambda_nodejs.NodejsFunction(this, 'InteractionHandler', {
       entry: 'discord/functions/interactions.ts',
@@ -39,6 +40,7 @@ export class DiscordBotStack extends Stack {
         }))),
       },
       logRetention: 7,
+      runtime: Runtime.NODEJS_16_X,
     });
 
     interactionHandler.addToRolePolicy(new aws_iam.PolicyStatement({
