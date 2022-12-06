@@ -33,5 +33,5 @@ const gamersValheimStackFresh = new ValheimStack(app, 'GamersValheimStackFresh',
 
 new DiscordBotStack(app, 'DiscordBotStack', {
   env,
-  valheimStacks: [gamersValheimStack, gamersValheimStackFresh],
+  valheimStacks: [gamersValheimStackFresh, gamersValheimStack],
 });

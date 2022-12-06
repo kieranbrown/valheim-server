@@ -42,6 +42,7 @@ export class ValheimStack extends Stack {
         ON_VALHEIM_LOG_FILTER_CONTAINS_Spawned: '{ read l; l=${l//*ZDOID from /}; l=${l// :*/}; msg="$SERVER_NAME: Player $l spawned into the world"; curl -sfSL -X POST -H "Content-Type: application/json" -d "{\\"username\\":\\"Valheim\\",\\"content\\":\\"$msg\\"}" "$DISCORD_WEBHOOK"; }',
         POST_START_HOOK: 'curl -sfSL -X POST -H "Content-Type: application/json" -d "{\\"username\\":\\"Valheim\\",\\"content\\":\\"$(eval echo $DISCORD_POST_START_MESSAGE)\\"}" "$DISCORD_WEBHOOK"',
         POST_SERVER_SHUTDOWN_HOOK: 'curl -sfSL -X POST -H "Content-Type: application/json" -d "{\\"username\\":\\"Valheim\\",\\"content\\":\\"$(eval echo $DISCORD_POST_SHUTDOWN_MESSAGE)\\"}" "$DISCORD_WEBHOOK"',
+        SERVER_PUBLIC: 'false',
       },
       vpc: vpc,
     });
