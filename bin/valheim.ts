@@ -9,7 +9,7 @@ const env: Environment = {
   region: process.env.CDK_DEFAULT_REGION,
 };
 
-const valheimStack = new ValheimStack(app, 'GamersValheimStack', {
+const gamersValheimStack = new ValheimStack(app, 'GamersValheimStack', {
   env,
   environment: {
     ADMINLIST_IDS: '76561198041195400',
@@ -20,7 +20,18 @@ const valheimStack = new ValheimStack(app, 'GamersValheimStack', {
   },
 });
 
+const gamersValheimStackFresh = new ValheimStack(app, 'GamersValheimStackFresh', {
+  env,
+  environment: {
+    ADMINLIST_IDS: '76561198041195400',
+    DISCORD_WEBHOOK: process.env.DISCORD_WEBHOOK!,
+    SERVER_NAME: 'Gamers - Friend Finder (Fresh)',
+    SERVER_PASS: process.env.GAMERS_SERVER_PASS!,
+    WORLD_NAME: 'GamersFresh',
+  },
+});
+
 new DiscordBotStack(app, 'DiscordBotStack', {
   env,
-  valheimStacks: [valheimStack],
+  valheimStacks: [gamersValheimStack, gamersValheimStackFresh],
 });
